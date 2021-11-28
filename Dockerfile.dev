@@ -1,0 +1,24 @@
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+ENV CHOKIDAR_USEPOLLING=true
+
+COPY package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+CMD ["npm", "run", "start"]
+
+# f 옵션을 줘서 dev로 설정, 빌드
+# docker build -f Dockerfile.dev -t dkaskgkdua/docker-react-app .
+# docker run -it -p 3000:3000 dkaskgkdua/docker-react-app
+
+# 볼륨 powershell 에선 안먹고 cmd 환경에선 먹음...
+# docker run -e CHOKIDAR_USEPOLLING=true -it -p 3000:3000 -v /usr/src/app/node_modules -v ${cwd}:/usr/src/app dkaskgkdua/docker-react-app:latest
+# docker run -e CHOKIDAR_USEPOLLING=true -it -p 3000:3000 -v /usr/src/app/node_modules -v %cd%:/usr/src/app dkaskgkdua/docker-react-app:latest
+
+# 도커 환경에서 앱 테스트
+# docker run -it 이미지이름 npm run test

@@ -4,9 +4,9 @@ services:
     build:
       # 도커 이미지를 구성하기 위한 파일과 폴더들이 있는 곳(현 위치)
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "80:80"
     volumes:
       - /usr/src/app/node_modules
       - ./:/usr/src/app # 현재 디렉토리에 있는 것을 /usr/src/app에서 참조

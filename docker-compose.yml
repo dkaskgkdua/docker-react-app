@@ -11,11 +11,11 @@ services:
       - /usr/src/app/node_modules
       - ./:/usr/src/app # 현재 디렉토리에 있는 것을 /usr/src/app에서 참조
     stdin_open: true #리엑트 앱 끌때 필요(버그)
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /usr/src/app/node_modules
-      - ./:/usr/src/app
-    command: ["npm", "run", "test"]
+#  tests:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.dev
+#    volumes:
+#      - /usr/src/app/node_modules
+#      - ./:/usr/src/app
+#    command: ["npm", "run", "test"]
